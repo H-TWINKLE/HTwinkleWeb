@@ -4,6 +4,8 @@ services:
   htwinkle.cn.web:
     image: registry.cn-hangzhou.aliyuncs.com/htwinkle/htwinkle.cn.web
     container_name: htwinkle.cn.web
+    restart: always
+    privileged: true
     ports:
       - "9011:9011"
     environment:
