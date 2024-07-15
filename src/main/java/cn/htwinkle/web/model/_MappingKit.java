@@ -17,11 +17,14 @@ public class _MappingKit {
 	
 	public static void mapping(ActiveRecordPlugin arp) {
 		arp.addMapping("article", "articleId", Article.class);
+		arp.addMapping("config", "config_id", Config.class);
+		arp.addMapping("exam_account", "account_id", ExamAccount.class);
+		arp.addMapping("exam_status", "status_id", ExamStatus.class);
+		arp.addMapping("exam_task", "exam_task_id", ExamTask.class);
 		arp.addMapping("netMusic", "netMusicId", NetMusic.class);
 		arp.addMapping("netMusicPlayList", "netMusicPlayListId", NetMusicPlayList.class);
 		arp.addMapping("picture", "pictureId", Picture.class);
 		arp.addMapping("project", "projectId", Project.class);
-		arp.addMapping("sms_group", "sms_tel", SmsGroup.class);
 		arp.addMapping("user", "userId", User.class);
 		arp.addMapping("visit", "visitId", Visit.class);
 	}

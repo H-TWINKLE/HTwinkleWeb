@@ -1,5 +1,6 @@
 package cn.htwinkle.web.plugin;
 
+import cn.htwinkle.web.kit.EnvKit;
 import cn.htwinkle.web.model._MappingKit;
 import com.jfinal.kit.Prop;
 import com.jfinal.kit.PropKit;
@@ -31,11 +32,15 @@ public class TestPlugin implements IPlugin {
     public TestPlugin(boolean startFlag) {
         if (startFlag) {
             _init();
-            druidPlugin = new DruidPlugin(p.get("jdbcUrl"), p.get("user"), p.get("password"));
+            druidPlugin = new DruidPlugin(p.get("jdbcUrl"), p.get("user"), getPassword());
             druidPlugin.start();
         } else {
             init();
         }
+    }
+
+    private String getPassword() {
+        return EnvKit.INSTANCE.getEnvironmentValue(p.get("password"));
     }
 
     private void _init() {
@@ -43,7 +48,7 @@ public class TestPlugin implements IPlugin {
     }
 
     private void init() {
-        druidPlugin = new DruidPlugin(p.get("jdbcUrl"), p.get("user"), p.get("password"));
+        druidPlugin = new DruidPlugin(p.get("jdbcUrl"), p.get("user"), getPassword());
         activeRecordPlugin = new ActiveRecordPlugin(druidPlugin);
         activeRecordPlugin.setShowSql(PropKit.getBoolean("devMode", false));
         _MappingKit.mapping(activeRecordPlugin);

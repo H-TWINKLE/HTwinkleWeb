@@ -1,5 +1,6 @@
 package cn.htwinkle.web.routes;
 
+import cn.htwinkle.web._front._config.ConfigController;
 import cn.htwinkle.web._front._index.IndexController;
 import cn.htwinkle.web._front.article.ArticleController;
 import cn.htwinkle.web._front.diao.DiAoController;
@@ -26,5 +27,6 @@ public class FrontRoutes extends Routes {
         add("/idea", IdeaController.class, "/idea");
         add("/we", WeController.class, "/we");
         add("/sms", SmsGroupController.class, "/sms");
+        add("/config", ConfigController.class, "/config");
     }
 }

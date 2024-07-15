@@ -9,6 +9,53 @@ Table: article
  articleDate    | DATETIME(19) | YES  |     |         |         
 ----------------+--------------+------+-----+---------+---------
 
+Table: config
+---------------+----------------------+------+-----+---------+---------
+ Field         | Type                 | Null | Key | Default | Remarks 
+---------------+----------------------+------+-----+---------+---------
+ config_id     | INT(10)              | NO   | PRI |         | 配置id    
+ config_name   | VARCHAR(191)         | YES  |     |         | 配置名字    
+ config_value  | LONGTEXT(2147483647) | YES  |     |         | 配置值     
+ config_type   | VARCHAR(255)         | YES  |     |         | 类型      
+ config_tree   | VARCHAR(255)         | YES  |     |         | 配置列     
+ config_create | DATETIME(19)         | YES  |     |         | 创建时间    
+ config_update | DATETIME(19)         | YES  |     |         | 更新时间    
+---------------+----------------------+------+-----+---------+---------
+
+Table: exam_account
+--------------+--------------+------+-----+---------+---------
+ Field        | Type         | Null | Key | Default | Remarks 
+--------------+--------------+------+-----+---------+---------
+ account_id   | INT(10)      | NO   | PRI |         | 自增的id   
+ account_name | VARCHAR(255) | YES  |     |         | 用户名     
+ password     | VARCHAR(255) | YES  |     |         | 密码      
+ account_main | INT(10)      | YES  |     |         | 重要用户    
+ create_time  | DATETIME(19) | YES  |     |         | 创建时间    
+ enabled      | INT(10)      | YES  |     |         | 是否使用，1为使用
+--------------+--------------+------+-----+---------+---------
+
+Table: exam_status
+----------------+--------------+------+-----+---------+---------
+ Field          | Type         | Null | Key | Default | Remarks 
+----------------+--------------+------+-----+---------+---------
+ status_id      | INT(10)      | NO   | PRI |         |         
+ status_user    | INT(10)      | YES  |     |         | 用户      
+ status_task    | INT(10)      | YES  |     |         | 任务      
+ status_content | VARCHAR(255) | YES  |     |         | 任务状态    
+ status_remarks | VARCHAR(255) | YES  |     |         | 补充说明    
+ status_create  | DATETIME(19) | YES  |     |         | 任务创建时间  
+----------------+--------------+------+-----+---------+---------
+
+Table: exam_task
+-------------------+--------------+------+-----+---------+---------
+ Field             | Type         | Null | Key | Default | Remarks 
+-------------------+--------------+------+-----+---------+---------
+ exam_task_id      | INT(10)      | NO   | PRI |         |         
+ exam_task_name    | VARCHAR(195) | YES  |     |         | 任务名称    
+ exam_task_enabled | INT(10)      | YES  |     |         | 是否使用，1为使用
+ exam_task_create  | DATETIME(19) | YES  |     |         |         
+-------------------+--------------+------+-----+---------+---------
+
 Table: netMusic
 --------------------+--------------+------+-----+---------+---------
  Field              | Type         | Null | Key | Default | Remarks 
@@ -69,18 +116,6 @@ Table: project
  projectPicPosition            | VARCHAR(255) | YES  |     |         | 背景图片位置  
  projectDate                   | DATETIME(19) | YES  |     |         |         
 -------------------------------+--------------+------+-----+---------+---------
-
-Table: sms_group
------------------+--------------+------+-----+---------+---------
- Field           | Type         | Null | Key | Default | Remarks 
------------------+--------------+------+-----+---------+---------
- sms_tel         | VARCHAR(191) | NO   | PRI |         | 电话号码    
- sms_name        | VARCHAR(191) | YES  |     |         | 名字      
- sms_send_name   | VARCHAR(191) | YES  |     |         | 发送的名字   
- tel_sn          | VARCHAR(191) | YES  |     |         | 设备的唯一标志 
- sms_backup      | INT(10)      | YES  |     |         | 备份的标志   
- sms_send_status | INT(10)      | YES  |     |         | 发送的标志   
------------------+--------------+------+-----+---------+---------
 
 Table: user
 --------------+--------------+------+-----+---------+---------
