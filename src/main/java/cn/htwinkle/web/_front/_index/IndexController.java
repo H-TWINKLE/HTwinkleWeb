@@ -51,7 +51,7 @@ public class IndexController extends BaseController {
             JSONArray assets = jsonObject.getJSONArray("assets");
             for (int i = 0; i < assets.size(); i++) {
                 String name = assets.getJSONObject(i).getString("name");
-                if (StrUtil.isNotEmpty(name) && name.contains("aligned")) {
+                if (StrUtil.isNotEmpty(name) && name.contains("signed")) {
                     downloadUrl = assets.getJSONObject(i).getString("browser_download_url");
                 }
             }
